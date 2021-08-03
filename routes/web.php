@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
+use App\Http\Controllers\TweetController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -31,5 +32,10 @@ Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $requ
 
     return redirect('/home');
 })->middleware(['auth', 'signed'])->name('verification.verify');
+
+Route::get('tweets/index', [TweetController::class,'index'] )->name('tweets.index');
+
+Route::get('tweets/create', 'TweetController@showCreateForm')->name('tweets.create');
+Route::post('tweets/create', 'TweetController@create');
 
 require __DIR__.'/auth.php';
