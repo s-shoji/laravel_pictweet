@@ -14,4 +14,9 @@ class TweetController extends Controller
             'tweets' => $tweet,
         ]);
     }
+
+    public function showCreateForm()
+    {
+        return view('tweets/create');
+    }
 }

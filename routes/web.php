@@ -14,9 +14,7 @@ use App\Http\Controllers\TweetController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [TweetController::class,'index']);
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -35,7 +33,7 @@ Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $requ
 
 Route::get('tweets/index', [TweetController::class,'index'] )->name('tweets.index');
 
-Route::get('tweets/create', 'TweetController@showCreateForm')->name('tweets.create');
-Route::post('tweets/create', 'TweetController@create');
+Route::get('tweets/create', [TweetController::class, 'showCreateForm'])->name('tweets.create');
+Route::post('tweets/create', [TweetController::class, 'create']);
 
 require __DIR__.'/auth.php';
