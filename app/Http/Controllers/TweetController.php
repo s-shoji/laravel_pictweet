@@ -17,6 +17,15 @@ class TweetController extends Controller
         ]);
     }
 
+    public function show(int $id)
+    {
+        $tweet = Tweet::find($id);
+        return view('tweets/show',[
+            'id' => $id,
+            'tweet' => $tweet
+        ]);
+    }
+
     public function showCreateForm()
     {
         return view('tweets/create');
