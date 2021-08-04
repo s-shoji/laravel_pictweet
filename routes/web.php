@@ -14,7 +14,15 @@ use App\Http\Controllers\TweetController;
 |
 */
 
-Route::get('/', [TweetController::class,'index']);
+
+Route::group(['middleware' => 'auth'], function(){
+    Route::get('tweets/index', [TweetController::class,'index'] )->name('tweets.index');
+
+    Route::get('tweets/{id}/show', [TweetController::class,'show'] )->name('tweets.show');
+
+    Route::get('tweets/create', [TweetController::class, 'showCreateForm'])->name('tweets.create');
+    Route::post('tweets/create', [TweetController::class, 'create']);
+});
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -31,11 +39,7 @@ Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $requ
     return redirect('/home');
 })->middleware(['auth', 'signed'])->name('verification.verify');
 
-Route::get('tweets/index', [TweetController::class,'index'] )->name('tweets.index');
 
-Route::get('tweets/{id}/show', [TweetController::class,'show'] )->name('tweets.show');
 
-Route::get('tweets/create', [TweetController::class, 'showCreateForm'])->name('tweets.create');
-Route::post('tweets/create', [TweetController::class, 'create']);
 
 require __DIR__.'/auth.php';

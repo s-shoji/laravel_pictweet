@@ -1,7 +1,8 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Tweet') }}
+        <h2 class="font-semibold text-xl text-gray-800 leading-tight flex justify-between mt-4 p-6 space-x-10">
+            {{ __('TweetCreate') }}
+            <a href="{{ route('tweets.index') }}">{{ __('Tweet') }}</a>
         </h2>
     </x-slot>
 
