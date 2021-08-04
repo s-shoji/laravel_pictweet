@@ -65,12 +65,20 @@ class TweetController extends Controller
 
     }
 
+    public function showDeleteForm(int $id )
+    {
+        $tweet = Tweet::find($id);
+        return view('tweets/delete', [
+            'id' => $id,
+            'tweet' => $tweet,
+        ]);
+    }
+
     public function delete(int $id)
     {
         $tweet = Tweet::find($id);
-        $tweet->delete_flag = 1;
-        $tweet->save();
-
+        $tweet->delete();
         return redirect()->route('tweets.index');
     }
+
 }

@@ -13,7 +13,7 @@
                 <div class="p-6 bg-white border-b border-gray-200">
                 @foreach($tweets as $tweet)
                 
-                <a href="{{ route('tweets.show', ['id' => $tweet->id]) }}">{{$tweet->id}}</a>
+                <a href="{{ route('tweets.show', ['id' => $tweet->id]) }}">id{{$tweet->id}}</a>
                 title
                 {{$tweet->title}} <br>
                 content

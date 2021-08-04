@@ -25,6 +25,9 @@ Route::group(['middleware' => 'auth'], function(){
 
     Route::get('tweets/{id}/edit', [TweetController::class,'showEditForm'])->name('tweets.edit');
     Route::post('tweets/{id}/edit', [TweetController::class,'edit']);
+
+    Route::get('tweets/{id}/delete', [TweetController::class,'showDeleteForm'])->name('tweets.delete');
+    Route::post('tweets/{id}/delete', [TweetController::class,'delete']);
 });
 
 Route::get('/dashboard', function () {
