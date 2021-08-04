@@ -43,4 +43,34 @@ class TweetController extends Controller
 
         return redirect()->route('tweets.index');
     }
+
+    public function showEditForm(int $id)
+    {
+        $tweet = Tweet::find($id);
+
+        return view('tweets/edit', [
+            'id' => $id,
+            'tweet' => $tweet,
+        ]);
+    }
+
+    public function edit(int $id, Request $request)
+    {
+        $tweet = Tweet::find($id);
+        $tweet->title = $request->title;
+        $tweet->content = $request->content;
+        $tweet->save();
+
+        return redirect()->route('tweets.index');
+
+    }
+
+    public function delete(int $id)
+    {
+        $tweet = Tweet::find($id);
+        $tweet->delete_flag = 1;
+        $tweet->save();
+
+        return redirect()->route('tweets.index');
+    }
 }

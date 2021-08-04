@@ -22,6 +22,9 @@ Route::group(['middleware' => 'auth'], function(){
 
     Route::get('tweets/create', [TweetController::class, 'showCreateForm'])->name('tweets.create');
     Route::post('tweets/create', [TweetController::class, 'create']);
+
+    Route::get('tweets/{id}/edit', [TweetController::class,'showEditForm'])->name('tweets.edit');
+    Route::post('tweets/{id}/edit', [TweetController::class,'edit']);
 });
 
 Route::get('/dashboard', function () {
