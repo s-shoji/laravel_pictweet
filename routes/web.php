@@ -19,7 +19,7 @@ use App\Http\Controllers\CommentController;
 Route::group(['middleware' => 'auth'], function(){
     Route::get('tweets/index', [TweetController::class,'index'] )->name('tweets.index');
 
-    Route::get('tweets/{id}/show', [TweetController::class,'show'] )->name('tweets.show');
+    Route::get('tweets/{id}/show', [CommentController::class,'index'] )->name('tweets.show');
 
     Route::get('tweets/create', [TweetController::class, 'showCreateForm'])->name('tweets.create');
     Route::post('tweets/create', [TweetController::class, 'create']);

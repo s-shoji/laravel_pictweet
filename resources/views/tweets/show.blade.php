@@ -14,10 +14,10 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200 text-center text-4xl">
                 
-                  {{$tweet->id}}
-                  title
+                  {{$tweet->id}} <br>
+                  title:
                   {{$tweet->title}} <br>
-                  content
+                  content:
                   {{$tweet->content}} <br><br>
                   
                 </div>
@@ -49,5 +49,31 @@
             </div>
         </div>
     </div>
-    
+
+  
+    <div class="py-12">
+        <div class="max-w-7xl mx-auto sm:px-20 lg:px-20">
+            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+                <div class="p-6 bg-white border-b border-gray-200 text-center text-4xl">
+               
+                <!-- @php
+                dump($comments)
+                @endphp
+               -->
+               @if((count($comments) === 0))
+               <p class="text-sm">{{ __('no comment')}}</p>
+               @else
+                @foreach($comments as $comment)
+                        <div class="text-center text-2xl" >
+                            {{$comment->id}} <br>
+                            Comment:
+                            {{$comment->comment}}<br><br>
+                        </div>
+                @endforeach
+                @endif
+                </div>
+            </div>
+        </div>
+    </div>
+ 
 </x-app-layout>

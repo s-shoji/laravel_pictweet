@@ -26,6 +26,7 @@ class TweetController extends Controller
         ]);
     }
 
+   
     public function showCreateForm()
     {
         return view('tweets/create');

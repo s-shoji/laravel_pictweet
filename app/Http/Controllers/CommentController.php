@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Comment;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use App\Models\Tweet;
 
 class CommentController extends Controller
@@ -22,6 +23,18 @@ class CommentController extends Controller
 
         return redirect()->route('tweets.show',[
             'id' => $id,
+        ]);
+    }
+
+    public function index(int $id, Comment $comment)
+    {
+        $tweet = Tweet::find($id);
+        $comment = DB::table('comments')->where('tweet_id', $id)->get();
+
+        return view('tweets/show', [
+            'id' => $id,
+            'tweet' => $tweet,
+            'comments' => $comment,
         ]);
     }
 }
