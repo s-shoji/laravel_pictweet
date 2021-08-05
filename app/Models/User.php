@@ -43,11 +43,11 @@ class User extends Authenticatable implements MustVerifyEmail
 
     public function tweets()
     {
-        return $this->hasMany('App\Models\Tweet');
+        return $this->hasMany(Tweet::class);
     }
 
     public function comments()
     {
-        return $this->hasMany('App\Models\Comment');
+        return $this->hasMany(Comment::class);
     }
 }

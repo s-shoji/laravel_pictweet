@@ -16,10 +16,14 @@
                   title:
                   {{$tweet->title}} <br>
                   content:
-                  {{$tweet->content}} <br><br>
+                  {{$tweet->content}} <br>
+                  created_at:
+                  {{$tweet->created_at}} <br>
+                  user_name:
+                  {{$tweet->user->name}}<br><br>
                   @endforeach
                 </div>
-                
+             
                 </div>
             </div>
         </div>

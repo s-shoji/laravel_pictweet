@@ -12,11 +12,11 @@ class Comment extends Model
 
     public function tweet()
     {
-        return $this->belongsTo('App\Models\Tweet');
+        return $this->belongsTo(Tweet::class);
     }
 
-    public function User()
+    public function user()
     {
-        return $this->belongsTo('App\Models\User');
+        return $this->belongsTo(User::class);
     }
 }
