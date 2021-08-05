@@ -17,17 +17,14 @@
                       <div>
                           <x-label for="title" :value="__('Title')" />
 
-                          <x-input id="title" class="block mt-1 w-full" type="text" name="title" :value="old('title')" required autofocus />
+                          <x-input id="title" class="block mt-1 w-full" type="text" name="title" required autofocus />
                       </div>
 
                       <!-- content-->
                       <div class="mt-4">
                           <x-label for="content" :value="__('Content')" />
 
-                          <textarea id="content" class="block mt-1 w-full"
-                                          type="text"
-                                          name="content"
-                                          required autocomplete="current-content"> </textarea>
+                          <x-textarea id="content" class="block mt-1 w-full" type="text" name="content" required autofocus></x-textarea>
                       </div>
                       <div class="flex items-center justify-end mt-4">
                         <x-button class="ml-4">

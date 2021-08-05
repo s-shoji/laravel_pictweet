@@ -25,12 +25,8 @@
                       <!-- content-->
                       <div class="mt-4">
                           <x-label for="content" :value="__('Content')" />
-
-                          <textarea id="content" class="block mt-1 w-full"
-                                          type="text"
-                                          name="content"
-                                          required autofocus>
-                                          {{ old('content') ?? $tweet->content }}              
+                          <textarea id="content" rows="3" cols="10" class="block mt-1 w-full" type="text" name="content">
+                            {{ old('content') ?? $tweet->content }} 
                           </textarea>
                       </div>
                       <div class="flex items-center justify-end mt-4">

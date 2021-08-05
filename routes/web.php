@@ -35,8 +35,8 @@ Route::get('/dashboard', function () {
 })->middleware(['auth'])->name('dashboard');
 
 
-Route::get('/app', function () {
-    return view('app');
+Route::get('app', function () {
+    return view('layouts/app');
 })->middleware(['auth'])->name('dashboard');
 
 Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
