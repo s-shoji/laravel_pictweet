@@ -5,15 +5,20 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Tweet;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
 
 class TweetController extends Controller
 {
+   
     public function index(Tweet $tweet)
     {
         $tweet = Tweet::all();
+        $sum = $this->sumTweet();
 
         return view('tweets/index', [
             'tweets' => $tweet,
+            'sumt' => $sum,
         ]);
     }
 
@@ -82,4 +87,12 @@ class TweetController extends Controller
         return redirect()->route('tweets.index');
     }
 
+
+    private function sumTweet()
+    {
+       $sumtweets = Tweet::all()->where('created_at', '>=',  date_format(now(),'%Y-%m-01'))->count();
+       return $sumtweets;
+       
+    }
+    // $comment = Comment::all()->where('tweet_id',$id);
 }

@@ -3,7 +3,9 @@
         <h2 class="font-semibold text-xl text-gray-800 leading-tight flex items-center justify-between mt-4 p-6 space-x-5">
             {{ __('Tweet') }}
             <a href="{{ route('tweets.create') }}">{{ __('TweetCreate') }}</a>
-        </h2>     
+        </h2>  
+   
+        <h2>今月の累計投稿数は{{$sumt}}です。</h2>   
     </x-slot>
 
     <div class="py-12">

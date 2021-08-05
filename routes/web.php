@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use App\Http\Controllers\TweetController;
 use App\Http\Controllers\CommentController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,6 +21,8 @@ use App\Http\Controllers\CommentController;
 Route::group(['middleware' => 'auth'], function(){
     Route::get('/',[TweetController::class, 'index']);
     Route::get('tweets/index', [TweetController::class,'index'] )->name('tweets.index');
+
+    Route::get('users/index', [UserController::class,'index'] )->name('users.index');
 
     Route::get('tweets/{id}/show', [CommentController::class,'index'] )->name('tweets.show');
 
