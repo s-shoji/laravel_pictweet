@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use App\Http\Controllers\TweetController;
+use App\Http\Controllers\CommentController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -28,6 +29,8 @@ Route::group(['middleware' => 'auth'], function(){
 
     Route::get('tweets/{id}/delete', [TweetController::class,'showDeleteForm'])->name('tweets.delete');
     Route::post('tweets/{id}/delete', [TweetController::class,'delete']);
+
+    Route::post('tweets/{id}/comment', [CommentController::class,'create'])->name('comments.create');
 });
 
 Route::get('/dashboard', function () {

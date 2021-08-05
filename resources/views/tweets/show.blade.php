@@ -12,16 +12,42 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-20 lg:px-20">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-20 bg-white border-b border-gray-200 text-center text-4xl">
+                <div class="p-6 bg-white border-b border-gray-200 text-center text-4xl">
                 
                   {{$tweet->id}}
                   title
                   {{$tweet->title}} <br>
                   content
                   {{$tweet->content}} <br><br>
-                
+                  
                 </div>
             </div>
         </div>
     </div>
+
+    <div class="py-12">
+        <div class="max-w-7xl mx-auto sm:px-20 lg:px-20">
+            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+                <div class="p-6 bg-white border-b border-gray-200 text-center text-4xl">
+                
+                <form method="POST" action="{{ route('comments.create', ['id' => $tweet->id ]) }}">
+                      @csrf
+                      <!-- comments-->
+                      <div class="mt-4">
+                          <x-label for="comment" :value="__('Comment')" />
+
+                          <x-textarea id="comment" class="block mt-1 w-full" type="text" name="comment" required autofocus></x-textarea>
+                      </div>
+                      <div class="flex items-center justify-end mt-4">
+                        <x-button class="ml-4">
+                          {{ __('Comment') }}
+                        </x-button>
+                      </div>
+                  </form>
+                  
+                </div>
+            </div>
+        </div>
+    </div>
+    
 </x-app-layout>
