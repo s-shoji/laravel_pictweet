@@ -19,4 +19,14 @@ class Tweet extends Model
     {
         return $this->hasMany(Comment::class);
     }
+
+
+    public static function boot()
+    {
+        parent::boot();
+
+        static::deleted(function ($tweet) {
+            $tweet->comments()->delete();
+        });
+    }
 }
