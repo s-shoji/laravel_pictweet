@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
@@ -16,7 +17,6 @@ class TweetsTableSeeder extends Seeder
     public function run()
     {
         $user = DB::table('users')->first();
-
         $array = [
             ['天気', '今日はいい天気だ' ],
             ['プログラミング', 'phpを学んでいます' ],

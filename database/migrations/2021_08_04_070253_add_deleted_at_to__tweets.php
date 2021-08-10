@@ -25,8 +25,11 @@ class AddDeletedAtToTweets extends Migration
      */
     public function down()
     {
-        Schema::table('Tweets', function (Blueprint $table) {
-            $table->dropSoftDeletes();
-        });
+        if (Schema::hasTable('tweets')) {
+            Schema::table('Tweets', function (Blueprint $table) {
+                $table->dropSoftDeletes();
+            });
+        }
+        
     }
 }
